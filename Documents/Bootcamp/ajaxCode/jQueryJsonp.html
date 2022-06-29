@@ -1,0 +1,42 @@
+<!--
+ * @Author: error: git config user.name && git config user.email & please set dead value or install git
+ * @Date: 2022-06-28 12:14:35
+ * @LastEditors: error: git config user.name && git config user.email & please set dead value or install git
+ * @LastEditTime: 2022-06-28 13:39:19
+ * @FilePath: /ajaxCode/jQueryJsonp.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <style>
+        #result {
+            width: 300px;
+            height: 100px;
+            border: solid 2px #FF0088;
+        }
+    </style>
+</head>
+
+<body>
+    <button>发送Jsonp请求</button>
+    <div id="result"></div>
+    <script>
+        $('button').eq(0).click(function () {
+            $.getJSON('http://127.0.0.1:8000/jsonpserver?callback=?', function (data) {
+                $('#result').html(`
+                    名字:${data.name}
+                    城市:${data.songList},
+                `)
+            })
+        }); 
+    </script>
+</body>
+
+</html>
